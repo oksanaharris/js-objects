@@ -300,8 +300,8 @@ var stockCar = {
   autoTransmission: false
 };
 
-function detectingTransmission (object){
-  if(object.autoTransmission === true){
+function detectingTransmission (car){
+  if(car.autoTransmission === true){
     return 'You have automatic transmission!';
   } else {
     return'You have manual transmission.';
@@ -324,6 +324,16 @@ console.log(isAutomaticTransmission);
  */
 
 
+function addDriver (car, person){
+  car.driver = person;
+  return car;
+}
+
+var stockCarWithDriver = addDriver(stockCar, 'plainPerson');
+
+console.log(stockCarWithDriver);
+console.log(stockCar.driver);
+
 /*
     #Final Boss
     The Dev League instructors want to ride your whip!
@@ -340,7 +350,7 @@ console.log(isAutomaticTransmission);
 
         You should iterate through the names and ages, pass the values to your `buildPerson` function to build person objects (remember that this function returns a new object). Don't forget that this function actually takes **three** arguments, how will you handle that? (you should not have to change your function).
 
-    Example of a loaded Car:
+        Example of a loaded Car:
 
     # Display passengers
         Delcare a function named `displayPassengers` and set one parameter which will be a **car**. This function should print out each passenger's name and age one line at a time.
@@ -354,8 +364,43 @@ console.log(isAutomaticTransmission);
         'Nigel, age 9, is riding dirty!'
         'Kelli, age 19, is riding dirty!'
         'Marifel, age 19, is riding dirty!'
-        'Victor, age 19, is riding dirty!'
- */
+        'Victor, age 19, is riding dirty!'*/
+
+var whip = {};
+
+var passengerList = ['Jon', 'Jason', 'Tony', 'Joe', 'Jesse', 'Nigel', 'Kelli', 'Marifel', 'Victor'];
+
+var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
+
+function buildPerson (names, ages){
+  var person = {
+    name: names,
+    age: ages
+  };
+  return person;
+}
+
+function addPassengers (car, namesArr, agesArr){
+  car.passengers = [];
+  for (i = 0; i < namesArr.length; i++){
+    var person = buildPerson(namesArr[i], agesArr[i]);
+    car.passengers.push(person);
+  }
+  return car;
+}
+
+addPassengers(whip, passengerList, passengerAges);
+
+function displayPassengers (car){
+  for (i = 0; i<car.passengers.length; i++){
+    console.log(car.passengers[i].name + ', age ' + car.passengers[i].age + ', is riding dirty!');
+  }
+}
+
+displayPassengers(whip);
+
+
+    
 
 
 
