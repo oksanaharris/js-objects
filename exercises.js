@@ -256,6 +256,12 @@ console.log(sumObj);
         **create more** objects and invoke your function multiple times.
  */
 
+function printObj (object){
+  object.output = object.a + ' + ' + object.b + ' = ' + object.result;
+  console.log(object.output);
+}
+
+printObj(sumObj);
 
 /*
    Putting stuff in `plainBox`
@@ -267,6 +273,18 @@ console.log(sumObj);
         plainBoxResult and use `console.log` to inspect your results.
  */
 
+var plainBox = {};
+
+function putInPlainBox (object){
+  object.contents = [];
+  for (var i = 0; i <11; i++){
+    object.contents.push (Math.floor(Math.random()*10 + 1));
+  }
+}
+
+var plainBoxResults = putInPlainBox (plainBox);
+console.log(plainBox);
+console.log(plainBox.contents);
 
 /*
    Detecting transmission
@@ -278,7 +296,20 @@ console.log(sumObj);
 
         Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
+var stockCar = {
+  autoTransmission: false
+};
 
+function detectingTransmission (object){
+  if(object.autoTransmission === true){
+    return 'You have automatic transmission!';
+  } else {
+    return'You have manual transmission.';
+  }
+}
+
+var isAutomaticTransmission = detectingTransmission(stockCar);
+console.log(isAutomaticTransmission);
 
 /*
    Who's driving this thing?!
