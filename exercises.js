@@ -18,6 +18,17 @@ A literal object.
  "My dog `name` is `age` year old likes to `speak`."
  */ 
 
+var dog = {
+  name: "Scout",
+  age: 17,
+  vegeterian: false,
+  color: "purple",
+  speak: function(){
+    return "woof woof";
+  }
+};
+
+console.log('My dog ' + dog.name + ' is ' + dog.age + ' years old and likes to say ' + dog.speak() + '.');
 
 /*
 An empty object
@@ -32,6 +43,18 @@ An empty object
   Console.log the object.
 */
 
+var kicks = {};
+
+kicks.brand = "Nike";
+kicks.color = "blue";
+kicks.size = 8.5;
+kicks.buy = function(){
+  console.log("Hell Yeah!");
+};
+
+console.log(kicks);
+// when console.loggin this, if buy is set to a function, it just prints [function]
+
 
 /* 
    Declare a variable named `plainBox` and set its value to be an EMPTY object.
@@ -41,6 +64,11 @@ An empty object
             - add a property named `contents` and set it to be an empty array.
 */
 
+var plainBox = {};
+
+plainBox.color = "Red";
+plainBox.size = 5;
+plainBox.contents = [];
 
 /*
    Declare a variable named `stockCar` and create the following properties (key-value pairs) to the object:
@@ -50,6 +78,14 @@ An empty object
             - add a key named `driver` and set it to be `null`.
             - add a key named `passengers` and set it to be an empty array.
 */
+
+var stockCar = {
+  model: "Ford",
+  year: 2017,
+  automaticTransmission: true,
+  driver: null,
+  passengers: []
+};
 
 
 /*
@@ -67,6 +103,21 @@ An empty object
    the return value in a variable named `completePerson`. Use `console.log` three times to print the entire object, just 
    the value at `name`, and just the value at `age`.
  */
+
+var plainPerson = {};
+
+function buildPerson (person, nameString, age) {
+  person.name = nameString;
+  person.age = age;
+  return person;
+}
+
+var completePerson = buildPerson(plainPerson, "Jason", 23);
+
+console.log(completePerson);
+console.log(completePerson.name);
+console.log(completePerson.age);
+
 
 
 /*
@@ -95,6 +146,70 @@ An empty object
  */
 
 
+var arrayOfObjects = [
+  {
+    id: 0,
+    date: "Monday Jan 25 2015 2:01 PM",
+    total: "279.38"
+  },
+  {
+    id: 1,
+    date: "Monday Jan 27 2015 11:31 AM",
+    total: "79.80"
+  },
+  {
+    id: 2,
+    date: "Monday Feb 1 2015 7:56 AM",
+    total: "15.62"
+  },
+  {
+    id: 3,
+    date: "Monday Feb 1 2015 9:43 AM",
+    total: "19.83"
+  },
+  {
+    id: 4,
+    date: "Monday Feb 1 2015 11:08 PM",
+    total: "56.69"
+  },
+  {
+    id: 5,
+    date: "Monday Feb 13 2015 10:22 AM",
+    total: "137.92"
+  },
+  {
+    id: 6,
+    date: "Monday Feb 14 2015 6:54 PM",
+    total: "938.65"
+  },
+  {
+    id: 7,
+    date: "Monday Feb 14 2015 7:17 PM",
+    total: "43.77"
+  },
+  {
+    id: 8,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "28.54"
+  },
+  {
+    id: 9,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "194.33"
+  }
+];
+
+function printProcessedOrders (order){
+  for (i = 0; i < order.length; i++){
+  console.log('=====');
+  console.log('id: ' + order[i].id);
+  console.log('purchase date: ' + order[i].date); 
+  console.log('purchase total: ' + order[i].total);
+  }
+}
+
+printProcessedOrders(arrayOfObjects);
+
 /*
    Addition with an object
    Declare a new variable named sumObj and set it to be a new object with the properties `a`, `b`, and `result`. 
@@ -107,6 +222,21 @@ An empty object
         Invoke your function and pass in your object, store the result to a variable named sumObjResult and use `console.log` 
         to inspect your results.
 */
+
+var sumObj = {
+  a: 10,
+  b: 5,
+  result: null
+};
+
+function objectAddition(object){
+  object.result = object.a + object.b;
+  var sumObjResult = object.result;
+  return sumObjResult;
+}
+
+console.log(objectAddition(sumObj));
+console.log(sumObj);
 
 
 /*
@@ -195,3 +325,6 @@ An empty object
         'Marifel, age 19, is riding dirty!'
         'Victor, age 19, is riding dirty!'
  */
+
+
+
